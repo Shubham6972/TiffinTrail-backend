@@ -16,9 +16,11 @@ cloudinary.v2.config({
 })
 
 const app = express();
+const port = process.env.PORT;
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(express.json());
 app.use(cors());
+
 
 app.use('/api/my/user' , myUserRoute)
 app.use('/api/my/kitchen' , myKitchenRoute)
@@ -27,6 +29,6 @@ app.use('/api/order' , orderRoute)
 
 
 
-app.listen(8000, ()=>{
-    console.log("Server started on http://localhost:8000");
+app.listen(port, ()=>{
+    console.log(`http://localhost:${port}`);
 });
